@@ -1,0 +1,142 @@
+.profile {
+  color: white;
+  display: flex;
+  padding-top: 40px;
+  align-items: center;
+  white-space: nowrap;
+  margin-bottom: 30px;
+}
+
+.profile__image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-position: center;
+  margin-right: 24px;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "title button"
+    "description description";
+  grid-template-columns: minmax(auto, 373px) auto;
+  align-items: center;
+}
+
+.profile__title {
+  display: inline-block;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+  grid-area: title;
+  margin: 0;
+  max-width: 373px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__edit-button {
+  background: transparent url(../images/pencil.svg) center no-repeat;
+  height: 24px;
+  width: 24px;
+  grid-area: button;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  margin-left: 18px;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.profile__description {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  grid-area: description;
+  margin: 0;
+  max-width: 415px;
+  width: 100%;
+  padding-top: 7px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__add-button {
+  background: transparent url(../images/plus.svg) center no-repeat;
+  width: 150px;
+  height: 50px;
+  margin-left: auto;
+  border: 2px rgba(255, 255, 255, 1) solid;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: opacity 0.2s ease;
+  border-radius: 2px;
+}
+
+@media screen and (min-width: 633px) and (max-width: 756px) {
+  .profile__edit-button {
+    margin-right: 10px;
+  }
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 633px) {
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__image {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 36px;
+    max-width: 282px;
+  }
+
+  .profile__title {
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.21;
+    max-width: 250px;
+    padding-right: 10px;
+  }
+
+  .profile__description {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.21;
+    max-width: 415px;
+  }
+
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+  }
+
+  .profile__add-button {
+    width: 100%;
+    max-width: 282px;
+    margin: 0;
+    background-size: 16px;
+  }
+}
