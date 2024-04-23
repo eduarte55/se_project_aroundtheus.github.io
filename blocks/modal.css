@@ -1,0 +1,116 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  padding: 0 19px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.modal_opened {
+  display: flex;
+}
+
+.modal__container {
+  position: relative;
+  padding: 36px 36px 36.51px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #000;
+  border-width: 1px;
+  max-width: 460px;
+}
+
+.modal__close-button {
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+  width: 40px;
+  height: 40px;
+  top: -45px;
+  right: -45px;
+  background-image: url(..//images/close.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.modal__close-button:hover {
+  opacity: 60%;
+}
+
+.modal__heading {
+  color: black;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 30px;
+  margin: 0;
+  padding-bottom: 54px;
+  padding-right: 28px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__text-box {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+  padding: 0 0 13.26px;
+  border: none;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.modal__button-save {
+  background-color: #000;
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  border-radius: 2px;
+  border: none;
+  font-size: 18px;
+  line-height: 21.78px;
+  width: 378px;
+  height: 50.15px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.modal__save-button:hover {
+  opacity: 80%;
+}
+
+.modal__text-box {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  padding: 0 0 13.26px;
+  border: none;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.modal__text-box:first-of-type {
+  margin-bottom: 29.74px;
+}
+
+.modal__text-box:last-of-type {
+  margin-bottom: 48px;
+}

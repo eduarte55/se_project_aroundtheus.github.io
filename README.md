@@ -32,6 +32,8 @@ https://drive.google.com/file/d/1Jnpu42sKRY7VoH-zD3jon9r2sJpMO3I5/view?usp=drive
 
 # Pages
 
+https://eduarte55.github.io/se_project_aroundtheus.github.io/
+
 # Figma
 
 [Firma Design](https://www.figma.com/file/Es8zZP3ARGH9JGcw60i3OD/Sprint-3_-Around-the-US?type=design&node-id=6432-147&mode=design&t=xZJ05DPNgfMffQJD-0)
