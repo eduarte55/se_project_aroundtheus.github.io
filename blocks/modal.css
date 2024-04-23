@@ -114,3 +114,26 @@
 .modal__text-box:last-of-type {
   margin-bottom: 48px;
 }
+
+@media screen and (max-width: 620px) {
+  .modal__container {
+    max-width: 282px;
+    padding: 25px 22px;
+  }
+
+  .modal__close-button {
+    left: calc(100% - 25px);
+    bottom: calc(100% + 13px);
+    width: 26px;
+    height: 26px;
+  }
+
+  .modal__heading {
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+  .modal__button-save {
+    width: 238px;
+    height: 46px;
+  }
+}
