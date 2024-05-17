@@ -41,22 +41,60 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector("#modal-form");
+
 const cardListEl = document.querySelector(".elements__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+
+const cardAddModal = document.querySelector("#cardAddModal");
+const cardAddForm = cardAddModal.querySelector("#add-card-form");
+const addNewCardBtn = document.querySelector(".profile__add-button");
+const cardModalCloseBtn = cardAddModal.querySelector("#addModal_close-button");
+const cardTitleInput = cardAddModal.querySelector("#card-title-input");
+const cardUrlInput = cardAddModal.querySelector("#card-url-input");
+
+const reviewPictureModal = document.querySelector("#reviewPictureModal");
+const reviewPictureCloseBtn =
+  reviewPictureModal.querySelector("#picture_close-btn");
 
 /*------------------------------------------------------------*/
 /*                        Functions                           */
 /*------------------------------------------------------------*/
 
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
+  const likeButton = cardElement.querySelector(".card__like-button");
+  const trashButton = cardElement.querySelector(".card__trash-button");
+
+  trashButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
+  cardImageEl.addEventListener("click", (evt) => {
+    openModal(reviewPictureModal);
+    const reviewPictureModalImage =
+      reviewPictureModal.querySelector(".modal__picture");
+    const reviewPictureCaption = reviewPictureModal.querySelector(
+      ".modal__sub-heading"
+    );
+    reviewPictureCaption.textContent = evt.target.alt;
+    reviewPictureModalImage.src = evt.target.src;
+    reviewPictureModalImage.alt = evt.target.alt;
+  });
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
 
   cardTitleEl.textContent = cardData.name;
   cardImageEl.setAttribute("src", cardData.link);
@@ -73,7 +111,15 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
+  closeModal(profileEditModal);
+}
+
+function handleCardAddSubmit(e) {
+  e.preventDefault();
+  const cardData = { link: cardUrlInput.value, name: cardTitleInput.value };
+  cardListEl.prepend(getCardElement(cardData));
+  closeModal(cardAddModal);
+  cardAddForm.reset();
 }
 
 /*------------------------------------------------------------*/
@@ -83,17 +129,25 @@ function handleProfileEditSubmit(e) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  profileEditModal.classList.add("modal_opened");
+  openModal(profileEditModal);
 });
 
-profileEditForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
-});
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+profileModalCloseButton.addEventListener("click", () =>
+  closeModal(profileEditModal)
+);
 
-profileModalCloseButton.addEventListener("click", closePopup);
+addNewCardBtn.addEventListener("click", () => openModal(cardAddModal));
+cardModalCloseBtn.addEventListener("click", () => closeModal(cardAddModal));
+cardAddForm.addEventListener("submit", handleCardAddSubmit);
+
+reviewPictureCloseBtn.addEventListener("click", () =>
+  closeModal(reviewPictureModal)
+);
+
+/*------------------------------------------------------------*/
+/*                      Initial Setup                         */
+/*------------------------------------------------------------*/
 
 initialCards.forEach((cardData) => {
   cardListEl.prepend(getCardElement(cardData));

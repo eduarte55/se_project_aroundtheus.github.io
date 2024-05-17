@@ -47,3 +47,23 @@
 .card__like-button:hover {
   opacity: 0.5;
 }
+
+.card__like-button_active {
+  background-image: url(../images/heart-active.svg);
+}
+
+.card__trash-button {
+  background: transparent url(../images/Trash.svg) center no-repeat;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 18px;
+  height: 19.3px;
+  top: 36px;
+  right: -252px;
+}
+
+.card__trash-button:hover {
+  opacity: 0.6;
+}
